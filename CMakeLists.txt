@@ -5,6 +5,7 @@ project(costumeconverter VERSION 0.1.0)
 add_executable(costumeconverter 
 	src/main.cpp 
 	src/Bin2TextConverter.cpp
+	src/Text2BinConverter.cpp
 )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

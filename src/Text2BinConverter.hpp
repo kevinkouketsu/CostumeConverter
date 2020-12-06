@@ -1,11 +1,11 @@
-#ifndef BIN2TEXTCONVERTER_HPP
-#define BIN2TEXTCONVERTER_HPP
+#ifndef TEXT2BINCONVERTER_HPP
+#define TEXT2BINCONVERTER_HPP
 
-#include <vector>
 #include "BaseConverter.hpp"
 #include "SMountCostume.hpp"
+#include <vector>
 
-class Bin2TextConverter : public BaseConverter
+class Text2BinConverter : public BaseConverter
 {
 public:
     virtual bool ReadInput(std::string inputFile) override;
@@ -14,5 +14,8 @@ public:
 private:
     std::vector<SMountCostume> m_MountCostume;
 };
+
+
+
 
 #endif

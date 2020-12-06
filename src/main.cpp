@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "Bin2TextConverter.hpp"
+#include "Text2BinConverter.hpp"
 
 int main(int argc, char** argv) 
 {
@@ -20,9 +21,7 @@ int main(int argc, char** argv)
     }
     else if (operation == "text2bin")
     {
-        std::cout << "Not implemented yet";
-
-        return 1;
+        converter = std::make_unique<Text2BinConverter>();
     }
     else
     {
@@ -38,5 +37,11 @@ int main(int argc, char** argv)
         return 1;
     }
 
+    if (!converter->WriteOutput(argv[3]))
+    {
+        std::cout << "Fail to write output file " << std::endl;
+
+        return 1;
+    }
     return 1;
 }
