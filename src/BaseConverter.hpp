@@ -26,7 +26,7 @@ public:
     {
         auto copy = list;
         auto buffer = reinterpret_cast<char*>(copy.data());
-        auto size = list.size() * sizeof(T::value_type);
+        auto size = list.size() * sizeof(typename T::value_type);
         for (size_t i = 0; i < size; ++i)
             buffer[i] ^= 0x9c;
 
