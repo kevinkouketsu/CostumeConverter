@@ -1,4 +1,4 @@
-# CostumeConverter
+# MountCostumeConverter
 
 CostumeConverter it's a multiplatform tool to convert MountCostume binary file to text readable. Can convert from binary to text and text to binary.
 
@@ -13,7 +13,7 @@ cmake ../
 
 ## How to use
 
-Commandline: ./costumeconverter <operation> <inputfile> <outputfile>
+Commandline: `./costumeconverter <operation> <inputfile> <outputfile>`
 
 Available operations:
 - bin2text
