@@ -4,9 +4,11 @@
 #include "Bin2XmlConverter.hpp"
 #include "Text2BinConverter.hpp"
 #include "Xml2BinConverter.hpp"
+#include "config.h"
 
 int main(int argc, char** argv) 
 {
+    std::cout << PROJECT_NAME << " " << PROJECT_VER << " created by " << PROJECT_CREATOR << std::endl;
     if (argc != 4)
     {
         std::cout << "How to use: <operation> <inputfile> <outputfile>" << std::endl;
