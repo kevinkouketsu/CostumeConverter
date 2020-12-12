@@ -44,6 +44,9 @@ bool Text2BinConverter::ReadInput(std::string inputFile)
             str >> costume.fMountScale;
     }
 
+    if (costume.nIndex != 0)
+        m_MountCostume.push_back(std::move(costume));
+        
     return true;
 }
 
