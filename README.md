@@ -1,6 +1,6 @@
 # MountCostumeConverter
 
-CostumeConverter it's a multiplatform tool to convert MountCostume binary file to text readable. Can convert from binary to text and text to binary.
+CostumeConverter it's a multiplatform tool to convert MountCostume binary file to text readable. Some file operations are available at this moment.
 
 ## How to compile
 
@@ -18,3 +18,5 @@ Commandline: `./costumeconverter <operation> <inputfile> <outputfile>`
 Available operations:
 - bin2text
 - text2bin
+- xml2bin
+- bin2xml
