@@ -1,14 +1,20 @@
 #include <iostream>
 #include <memory>
 #include "Bin2TextConverter.hpp"
+#include "Bin2XmlConverter.hpp"
 #include "Text2BinConverter.hpp"
+#include "Xml2BinConverter.hpp"
 
 int main(int argc, char** argv) 
 {
     if (argc != 4)
     {
         std::cout << "How to use: <operation> <inputfile> <outputfile>" << std::endl;
-        std::cout << "\tOperation: bin2text or text2bin" << std::endl;
+        std::cout << "\tOperation:" << std::endl;
+        std::cout << "\t\tbin2text" << std::endl;
+        std::cout << "\t\ttext2bin" << std::endl;
+        std::cout << "\t\txml2bin" << std::endl;
+        std::cout << "\t\tbin2xml" << std::endl;
         return 1;
     }
 
@@ -22,6 +28,14 @@ int main(int argc, char** argv)
     else if (operation == "text2bin")
     {
         converter = std::make_unique<Text2BinConverter>();
+    }
+    else if (operation == "bin2xml")
+    {
+        converter = std::make_unique<Bin2XmlConverter>();
+    }
+    else if (operation == "xml2bin")
+    {
+        converter = std::make_unique<Xml2BinConverter>();
     }
     else
     {

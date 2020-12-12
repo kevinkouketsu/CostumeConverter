@@ -11,7 +11,7 @@ public:
     virtual bool ReadInput(std::string inputFile) override;
     virtual bool WriteOutput(std::string outputFile) override;
 
-private:
+protected:
     std::vector<SMountCostume> m_MountCostume;
 };
 
