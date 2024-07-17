@@ -6,10 +6,9 @@
 constexpr auto kIndexTag = "nIndex";
 constexpr auto kItemListIndexTag = "nItemListIndex";
 constexpr auto kSkinMeshTypeTag = "nSkinMeshType";
-constexpr auto kMesh1Tag = "nMesh1";
-constexpr auto kMesh2Tag = "nMesh2";
-constexpr auto kSkin1Tag = "nSkin1";
-constexpr auto kSkin2Tag = "nSkin2";
+constexpr auto kTotalParts = 8;
+constexpr auto kMeshTag = "nMesh";
+constexpr auto kSkinTag = "nSkin";
 constexpr auto kSancTag = "nSanc";
 constexpr auto kScaleTag = "nScale";
 

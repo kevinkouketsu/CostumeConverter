@@ -19,10 +19,13 @@ bool Bin2XmlConverter::WriteOutput(std::string outputFile)
         mountNode.append_attribute(kIndexTag) = mount.nIndex;
         mountNode.append_attribute(kItemListIndexTag) = mount.nItemListIndex;
         mountNode.append_attribute(kSkinMeshTypeTag) = mount.nSkinMeshType;
-        mountNode.append_attribute(kMesh1Tag) = mount.nMesh[0];
-        mountNode.append_attribute(kMesh2Tag) = mount.nMesh[1];
-        mountNode.append_attribute(kSkin1Tag) = mount.nSkin[0];
-        mountNode.append_attribute(kSkin2Tag) = mount.nSkin[1];
+
+        for (size_t i = 0; i < kTotalParts; ++i)
+        {
+            mountNode.append_attribute((std::string(kMeshTag) + std::to_string(i)).c_str()) = mount.nMesh[i];
+            mountNode.append_attribute((std::string(kSkinTag) + std::to_string(i)).c_str()) = mount.nSkin[i];
+        }
+
         mountNode.append_attribute(kSancTag) = mount.nSanc;
         mountNode.append_attribute(kScaleTag) = mount.fMountScale;
     }

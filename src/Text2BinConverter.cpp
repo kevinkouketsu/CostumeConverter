@@ -1,6 +1,7 @@
 #include "Text2BinConverter.hpp"
 #include <fstream>
 #include <sstream>
+#include <regex>
 
 bool Text2BinConverter::ReadInput(std::string inputFile)
 {
@@ -30,18 +31,34 @@ bool Text2BinConverter::ReadInput(std::string inputFile)
             str >> costume.nItemListIndex;
         else if (type == kSkinMeshTypeTag)
             str >> costume.nSkinMeshType;
-        else if (type == kMesh1Tag)
-            str >> costume.nMesh[0];
-        else if (type == kMesh2Tag)
-            str >> costume.nMesh[1];
-        else if (type == kSkin1Tag)
-            str >> costume.nSkin[0];
-        else if (type == kSkin2Tag)
-            str >> costume.nSkin[1];
         else if (type == kSancTag)
             str >> costume.nSanc;
         else if (type == kScaleTag)
             str >> costume.fMountScale;
+        else
+        {
+            std::regex meshSkinPattern(R"((nMesh|nSkin)(\d+))");
+            std::smatch match;
+
+            if (std::regex_match(type, match, meshSkinPattern))
+            {
+                const std::string prefix = match[1];
+                const int index = std::stoi(match[2]);
+
+                if (index >= kTotalParts)
+                    continue;
+
+                if (prefix == "nMesh")
+                {
+                    str >> costume.nMesh[index];
+                }
+                else if (prefix == "nSkin")
+                {
+                    str >> costume.nSkin[index];
+                }
+            }
+
+        }
     }
 
     if (costume.nIndex != 0)

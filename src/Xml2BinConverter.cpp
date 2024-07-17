@@ -14,16 +14,19 @@ bool Xml2BinConverter::ReadInput(std::string inputFile)
     }
     
     auto mountsNode = doc.child("mounts");
-    for (auto mountNode : mountsNode.children("mount"))
+    for (const auto& mountNode : mountsNode.children("mount"))
     {
         SMountCostume mount{};
         mount.nIndex = mountNode.attribute(kIndexTag).as_int();
         mount.nItemListIndex = mountNode.attribute(kItemListIndexTag).as_int();
         mount.nSkinMeshType = mountNode.attribute(kSkinMeshTypeTag).as_int();
-        mount.nMesh[0] = mountNode.attribute(kMesh1Tag).as_int();
-        mount.nMesh[1] = mountNode.attribute(kMesh2Tag).as_int();
-        mount.nSkin[0] = mountNode.attribute(kSkin1Tag).as_int();
-        mount.nSkin[1] = mountNode.attribute(kSkin2Tag).as_int();
+
+        for (size_t i = 0; i < kTotalParts; ++i)
+        {
+            mount.nMesh[i] = mountNode.attribute((std::string(kMeshTag) + std::to_string(i)).c_str()).as_int();
+            mount.nSkin[i] = mountNode.attribute((std::string(kSkinTag) + std::to_string(i)).c_str()).as_int();
+        }
+
         mount.nSanc = mountNode.attribute(kSancTag).as_int();
         mount.fMountScale = mountNode.attribute(kScaleTag).as_float();
 

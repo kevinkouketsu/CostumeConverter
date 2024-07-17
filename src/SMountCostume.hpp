@@ -6,8 +6,8 @@ struct SMountCostume
     int nIndex;
     int nItemListIndex;
     int nSkinMeshType;
-    int nMesh[2];
-    int nSkin[2];
+    int nMesh[kTotalParts];
+    int nSkin[kTotalParts];
     int nSanc;
     float fMountScale;
 };
